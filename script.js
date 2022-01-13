@@ -32,6 +32,7 @@ function staticLoadPlaces() {
     return [
         {
             name: 'Centro prelievi',
+            link:  'www.palazzo.com,
             location: {
                 lat: 39.169244,
                 lng: 8.524915,
@@ -39,6 +40,7 @@ function staticLoadPlaces() {
         },
         {
             name: 'Palazzo Pazze',
+            link:  'www.palazzo.com'
             location: {
                 lat: 39.169192,
                 lng: 8.526157,
@@ -46,6 +48,7 @@ function staticLoadPlaces() {
         },
         {
             name: 'Palazzo Retro',
+            link:  'www.palazzo.com',
             location: {
                 lat: 39.170012,
                 lng: 8.525485,
@@ -60,12 +63,13 @@ function renderPlaces(places) {
     places.forEach((place) => {
         let latitude = place.location.lat;
         let longitude = place.location.lng;
+        
 
         // add place name
         let text = document.createElement('a-link');
         text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         text.setAttribute('title', place.name);
-        text.setAttribute('href', 'http://www.test.com/');
+        text.setAttribute('href', 'place.link';
         text.setAttribute('scale', '10 10 10');
 
         text.addEventListener('loaded', () => {
