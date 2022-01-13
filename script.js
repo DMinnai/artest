@@ -44,6 +44,13 @@ function staticLoadPlaces() {
                 lng: 8.526157,
             }
         },
+        {
+            name: 'Palazzo Retro',
+            location: {
+                lat: 39.170012,
+                lng: 8.525485,
+            }
+        },
     ];
 }
 
@@ -58,8 +65,8 @@ function renderPlaces(places) {
         let text = document.createElement('a-link');
         text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         text.setAttribute('title', place.name);
-        text.setAttribute('href', 'http://www.example.com/');
-        text.setAttribute('scale', '15 15 15');
+        text.setAttribute('href', 'http://www.test.com/');
+        text.setAttribute('scale', '10 10 10');
 
         text.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
