@@ -32,7 +32,7 @@ function staticLoadPlaces() {
     return [
         {
             name: 'Centro prelievi',
-            link:  'www.palazzo.com,
+            link:  'www.palazzo.com',
             location: {
                 lat: 39.169244,
                 lng: 8.524915,
@@ -40,7 +40,7 @@ function staticLoadPlaces() {
         },
         {
             name: 'Palazzo Pazze',
-            link:  'www.palazzo.com'
+            link:  'www.palazzo.com',
             location: {
                 lat: 39.169192,
                 lng: 8.526157,
