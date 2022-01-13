@@ -1,6 +1,31 @@
 window.onload = () => {
-     let places = staticLoadPlaces();
-     renderPlaces(places);
+    let method = 'dynamic';
+
+    // if you want to statically add places, de-comment following line:
+    method = 'static';
+    if (method === 'static') {
+        let places = staticLoadPlaces();
+        return renderPlaces(places);
+    }
+
+    if (method !== 'static') {
+        // first get current user location
+        return navigator.geolocation.getCurrentPosition(function (position) {
+
+            // than use it to load from remote APIs some places nearby
+            dynamicLoadPlaces(position.coords)
+                .then((places) => {
+                    renderPlaces(places);
+                })
+        },
+            (err) => console.error('Error in retrieving position', err),
+            {
+                enableHighAccuracy: true,
+                maximumAge: 0,
+                timeout: 27000,
+            }
+        );
+    }
 };
 
 function staticLoadPlaces() {
@@ -29,14 +54,17 @@ function renderPlaces(places) {
         let latitude = place.location.lat;
         let longitude = place.location.lng;
 
-        let model = document.createElement('a-entity');
-        model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        model.setAttribute('scale', '5 5 5');
+        // add place name
+        let text = document.createElement('a-link');
+        text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+        text.setAttribute('title', place.name);
+        text.setAttribute('href', 'http://www.example.com/');
+        text.setAttribute('scale', '15 15 15');
 
-        model.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded'))
+        text.addEventListener('loaded', () => {
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
         });
 
-        scene.appendChild(model);
+        scene.appendChild(text);
     });
 }
