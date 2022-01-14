@@ -75,7 +75,18 @@ function renderPlaces(places) {
         text.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
         });
+        
+        let image = document.createElement('a-text');
+        
+        image.setAttribute('src', place.name);
+        image.setAttribute('scale', '5 5 5');
+
+       // text.addEventListener('loaded', () => {
+         //   window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
+       // });
+
 
         scene.appendChild(text);
+        scene.appendChild(image);
     });
 }
