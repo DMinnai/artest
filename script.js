@@ -87,6 +87,7 @@ function renderPlaces(places) {
         const clickListener = function (ev) {
             ev.stopPropagation();
             ev.preventDefault();
+            alert("cliccato");
 
             const name = ev.target.getAttribute('name');
 
