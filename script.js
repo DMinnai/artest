@@ -70,6 +70,7 @@ function renderPlaces(places) {
     places.forEach((place) => {
         const latitude = place.location.lat;
         const longitude = place.location.lng;
+        
 
         // add place icon
         const icon = document.createElement('a-image');
@@ -88,6 +89,7 @@ function renderPlaces(places) {
         const clickListener = function (ev) {
             ev.stopPropagation();
             ev.preventDefault();
+            console.log("target", ev.target);
             
 
             const name = ev.target.getAttribute('name');
@@ -104,7 +106,7 @@ function renderPlaces(places) {
 
                 setTimeout(() => {
                     container.parentElement.removeChild(container);
-                }, 29500);
+                }, 129500);
             }
         };
 
