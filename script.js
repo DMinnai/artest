@@ -1,14 +1,16 @@
 window.onload = () => {
     let method = 'dynamic';
 
-    // if you want to statically add places, de-comment following line:
+    // if you want to statically add places, de-comment following line
     method = 'static';
+
     if (method === 'static') {
         let places = staticLoadPlaces();
-        return renderPlaces(places);
+        renderPlaces(places);
     }
 
     if (method !== 'static') {
+
         // first get current user location
         return navigator.geolocation.getCurrentPosition(function (position) {
 
@@ -30,7 +32,7 @@ window.onload = () => {
 
 function staticLoadPlaces() {
     return [
-        {
+          {
             name: 'Palazzo Pazze Palazzo Pazze Palazzo Pazze Palazzo Pazze',
             link:  'https://dminnai.github.io/artest/test.html',
             location: {
@@ -38,41 +40,61 @@ function staticLoadPlaces() {
                 lng: 8.526157,
             }
         },
+        {
+            name: 'Another place name',
+            location: {
+                lat: 0,
+                lng: 0,
+            }
+        }
     ];
 }
+
+
 
 function renderPlaces(places) {
     let scene = document.querySelector('a-scene');
 
     places.forEach((place) => {
-        let latitude = place.location.lat;
-        let longitude = place.location.lng;
-        
+        const latitude = place.location.lat;
+        const longitude = place.location.lng;
 
-        // add place name
-        let text = document.createElement('a-link');
-        text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        text.setAttribute('title', place.name);
-        text.setAttribute('href',  place.link);
-        text.setAttribute('scale', '8 8 8');
+        // add place icon
+        const icon = document.createElement('a-image');
+        icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
+        icon.setAttribute('name', place.name);
+        icon.setAttribute('href',  place.link);
+        icon.setAttribute('src', '../assets/asset.png');
 
-       
-        
-        // let image = document.createElement('a-asset');
-        // image.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        // image.setAttribute('src', 'assets/assets.png');
-        // image.setAttribute('scale', '30 30 30');
-        // image.setAttribute('look-at', '[gps-camera]');
+        // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
+        icon.setAttribute('scale', '20, 20');
 
-        // image.addEventListener('loaded', () => {
-           //  window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
-        // });
+        icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
-         text.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
-        });
+        const clickListener = function (ev) {
+            ev.stopPropagation();
+            ev.preventDefault();
 
-        scene.appendChild(text);
-        //scene.appendChild(image);
+            const name = ev.target.getAttribute('name');
+
+            const el = ev.detail.intersection && ev.detail.intersection.object.el;
+
+            if (el && el === ev.target) {
+                const label = document.createElement('span');
+                const container = document.createElement('div');
+                container.setAttribute('id', 'place-label');
+                label.innerText = name;
+                container.appendChild(label);
+                document.body.appendChild(container);
+
+                setTimeout(() => {
+                    container.parentElement.removeChild(container);
+                }, 1500);
+            }
+        };
+
+        icon.addEventListener('click', clickListener);
+
+        scene.appendChild(icon);
     });
 }
