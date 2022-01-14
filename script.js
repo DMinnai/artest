@@ -32,7 +32,7 @@ function staticLoadPlaces() {
     return [
         {
             name: 'Palazzo Pazze Palazzo Pazze Palazzo Pazze Palazzo Pazze',
-            link:  'https://dminnai.github.io/artest/index.html',
+            link:  'https://dminnai.github.io/artest/test.html',
             location: {
                 lat: 39.169192,
                 lng: 8.526157,
@@ -54,13 +54,11 @@ function renderPlaces(places) {
         text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         text.setAttribute('title', place.name);
         text.setAttribute('href',  place.link);
-        text.setAttribute('scale', '10 10 10');
+        text.setAttribute('scale', '1 1 1');
 
-        text.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
-        });
+       
         
-        // let image = document.createElement('a-image');
+        // let image = document.createElement('a-asset');
         // image.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         // image.setAttribute('src', 'assets/assets.png');
         // image.setAttribute('scale', '30 30 30');
@@ -70,6 +68,9 @@ function renderPlaces(places) {
            //  window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
         // });
 
+         text.addEventListener('loaded', () => {
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
+        });
 
         scene.appendChild(text);
         //scene.appendChild(image);
