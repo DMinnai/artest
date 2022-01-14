@@ -30,6 +30,14 @@
      font-size: 1.5em;
      border-radius: 0px;
 }
+ #place-link {
+     color:#227b1;
+     text-align: center;
+     font-size: 1.5em;
+}
+ a:visited {
+     color: #043959;
+}
  .arjs-loader {
      position: fixed;
      z-index: 999;
@@ -53,4 +61,4 @@
          transform: rotate(360deg) 
     }
 }
-
+ 
