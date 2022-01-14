@@ -69,25 +69,26 @@ function renderPlaces(places) {
         let text = document.createElement('a-link');
         text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         text.setAttribute('title', place.name);
-        //text.setAttribute('href',  place.link);
-        //text.setAttribute('scale', '10 10 10');
+        text.setAttribute('href',  place.link);
+        text.setAttribute('scale', '10 10 10');
+        text.setAttribute('clickhandler');
 
         text.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
         });
         
-        let image = document.createElement('a-image');
-        image.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
-        image.setAttribute('src', 'assets/assets.png');
-        image.setAttribute('scale', '30 30 30');
-        image.setAttribute('look-at', '[gps-camera]');
+        // let image = document.createElement('a-image');
+        // image.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
+        // image.setAttribute('src', 'assets/assets.png');
+        // image.setAttribute('scale', '30 30 30');
+        // image.setAttribute('look-at', '[gps-camera]');
 
-        image.addEventListener('loaded', () => {
-            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
-        });
+        // image.addEventListener('loaded', () => {
+           //  window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
+        // });
 
 
         scene.appendChild(text);
-        scene.appendChild(image);
+        //scene.appendChild(image);
     });
 }
