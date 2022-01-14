@@ -79,7 +79,8 @@ function renderPlaces(places) {
         let image = document.createElement('a-image');
         
         image.setAttribute('src', 'assets/assets.png');
-        image.setAttribute('scale', '5 5 5');
+        image.setAttribute('scale', '1 1 1');
+        image.setAttribute('look-at', '[gps-camera]');
 
         image.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
