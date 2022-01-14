@@ -79,6 +79,17 @@
       }
       }
    </style>
+   
+   <script>
+    AFRAME.registerComponent('clickhandler', {
+        init: function() {
+            this.el.addEventListener('click', () => {
+                alert('Ho cliccato!')
+            });
+    }});
+   </script>
+   
+   
    <body style='margin: 0; overflow: hidden;'>
       <a-scene 
          cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
