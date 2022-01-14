@@ -1,4 +1,4 @@
-window.onload = () => {
+ window.onload = () => {
     let method = 'dynamic';
 
     // if you want to statically add places, de-comment following line
@@ -33,18 +33,30 @@ window.onload = () => {
 function staticLoadPlaces() {
     return [
           {
-            name: 'Palazzo Pazze Palazzo Pazze Palazzo Pazze Palazzo Pazze',
+            name: 'Questo è il palazzo Pazze ',
             link:  'https://dminnai.github.io/artest/test.html',
+            src:   'assets/asset.png'  
             location: {
                 lat: 39.169192,
-                lng: 8.526157,
+                lng: 8.526058,
             }
         },
         {
-            name: 'Another place name',
+            name: 'Laboratorio analisi ',
+            link:  'https://dminnai.github.io/artest/test.html',
+            src:   'assets/lab.png'  
             location: {
-                lat: 0,
-                lng: 0,
+                lat: 39.169377,
+                lng: 8.524878,
+            }
+        }
+        {
+            name: 'Parcheggio Davide',
+            link:  'https://dminnai.github.io/artest/test.html',
+            src:   'assets/park.png'  
+            location: {
+                lat: 39.169307,
+                lng: 8.525570,
             }
         }
     ];
@@ -67,7 +79,7 @@ function renderPlaces(places) {
         icon.setAttribute('src', 'assets/asset.png');
 
         // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
-        icon.setAttribute('scale', '20, 20');
+        // icon.setAttribute('scale', '7, 7, 7');
 
         icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
