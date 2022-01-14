@@ -49,7 +49,7 @@ function staticLoadPlaces() {
                 lat: 39.169377,
                 lng: 8.524878,
             }
-        }
+        },
         {
             name: 'Parcheggio Davide',
             link:  'https://dminnai.github.io/artest/test.html',
@@ -58,7 +58,7 @@ function staticLoadPlaces() {
                 lat: 39.169307,
                 lng: 8.525570,
             }
-        }
+        },
     ];
 }
 
