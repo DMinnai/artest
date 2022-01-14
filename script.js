@@ -75,11 +75,12 @@ function renderPlaces(places) {
         const icon = document.createElement('a-image');
         icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
         icon.setAttribute('name', place.name);
-        icon.setAttribute('href',  place.link);
-        icon.setAttribute('src', place.src);
+        icon.setAttribute('href', place.link);
+        icon.setAttribute('src',  place.src);
+        icon.setAttribute('look-at', '[gps-camera]');
 
-        // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
-        icon.setAttribute('scale', '20, 20');
+        // for debug purposes,just show in a bigger scale
+        icon.setAttribute('scale', '20, 20, 20');
 
         icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
