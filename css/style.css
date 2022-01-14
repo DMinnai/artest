@@ -20,13 +20,14 @@
      display: flex;
      justify-content: center;
      width: 100%;
+     flex-direction: column;
+     background-color:gainsboro;
 }
  #place-label > span {
      z-index: 99999;
      padding: 1.25em;
-     color: #ffffff;
+     color: #212020;
      text-align: center;
-     background-color: #00000047;
      font-size: 1.5em;
      border-radius: 0px;
 }
@@ -34,6 +35,8 @@
      color:#227b1;
      text-align: center;
      font-size: 1.5em;
+     padding: .25em;
+ 
 }
  a:visited {
      color: #043959;
