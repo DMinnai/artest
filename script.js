@@ -78,6 +78,7 @@ function renderPlaces(places) {
         icon.setAttribute('src', place.src);
         icon.setAttribute('width', '2');
         icon.setAttribute('height', '2');
+        icon.setAttribute('look-at', '[gps-camera]');
 
         // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
         icon.setAttribute('scale', '7, 7');
