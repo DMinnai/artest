@@ -88,6 +88,7 @@ function renderPlaces(places) {
         const clickListener = function (ev) {
             ev.stopPropagation();
             ev.preventDefault();
+            
 
             const name = ev.target.getAttribute('name');
 
@@ -103,7 +104,7 @@ function renderPlaces(places) {
 
                 setTimeout(() => {
                     container.parentElement.removeChild(container);
-                }, 9500);
+                }, 29500);
             }
         };
 
