@@ -85,7 +85,9 @@ function renderPlaces(places) {
         // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
         icon.setAttribute('scale', '7, 7');
 
-        icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
+        // icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
+        icon.addEventListener('loaded', () => {  window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }})) });
+
 
         const clickListener = function (ev) {
             ev.stopPropagation();
