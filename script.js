@@ -31,7 +31,7 @@ window.onload = () => {
 function staticLoadPlaces() {
     return [
         {
-            name: 'Palazzo Pazze',
+            name: 'Palazzo Pazze Palazzo Pazze Palazzo Pazze Palazzo Pazze',
             link:  'https://dminnai.github.io/artest/index.html',
             location: {
                 lat: 39.169192,
@@ -55,7 +55,6 @@ function renderPlaces(places) {
         text.setAttribute('title', place.name);
         text.setAttribute('href',  place.link);
         text.setAttribute('scale', '10 10 10');
-        text.setAttribute('clickhandler');
 
         text.addEventListener('loaded', () => {
             window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
