@@ -32,7 +32,7 @@ function staticLoadPlaces() {
     return [
         {
             name: 'Palazzo Pazze',
-            link:  'www.palazzo.com',
+            link:  'https://dminnai.github.io/artest/index.html',
             location: {
                 lat: 39.169192,
                 lng: 8.526157,
