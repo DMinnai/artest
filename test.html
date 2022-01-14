@@ -81,12 +81,11 @@
    </style>
    
    <script>
-    AFRAME.registerComponent('link', {
-        init: function() {
-            this.el.addEventListener('click', () => {
-                alert('Ho cliccato!')
-            });
-    }});
+    el.addEventListener('click', function () {
+          alert('Ho cliccato!')
+       window.location.href = 'https://google.com';
+   });
+            
    </script>
    
    
