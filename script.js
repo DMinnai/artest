@@ -98,10 +98,19 @@ function renderPlaces(places) {
 
             if (el && el === ev.target) {
                 const label = document.createElement('span');
+                
                 const container = document.createElement('div');
                 container.setAttribute('id', 'place-label');
+                
+                const poiLink = document.createElement('a');
+                poiLink.setAttribute('id', 'place-link');
+                
                 label.innerText = name;
+                poiLink.innerText = link;
+                
                 container.appendChild(label);
+                container.appendChild(poiLink);
+                
                 document.body.appendChild(container);
 
                 setTimeout(() => {
