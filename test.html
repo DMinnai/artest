@@ -10,7 +10,7 @@
       <script>
       AFRAME.registerComponent('link', {
         init: function() {
-            this.el.addEventListener('click', () => {
+            this.el.addEventListener('testplace', () => {
                 alert('Ho cliccato!')
             });
        }});
@@ -23,7 +23,7 @@
    <body style='margin: 0; overflow: hidden;'>
     <a-scene
         cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
-        raycaster="objects: [gps-entity-place];"
+        raycaster="objects: [testplace];"
         vr-mode-ui="enabled: false"
 		embedded
 		arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
