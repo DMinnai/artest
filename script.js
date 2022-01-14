@@ -1,4 +1,4 @@
- window.onload = () => {
+window.onload = () => {
     let method = 'dynamic';
 
     // if you want to statically add places, de-comment following line
@@ -35,7 +35,7 @@ function staticLoadPlaces() {
           {
             name: 'Questo è il palazzo Pazze ',
             link:  'https://dminnai.github.io/artest/test.html',
-            src:   'assets/asset.png',  
+            src:   'assets/asset.png',
             location: {
                 lat: 39.169192,
                 lng: 8.526058,
@@ -53,7 +53,7 @@ function staticLoadPlaces() {
         {
             name: 'Parcheggio Davide',
             link:  'https://dminnai.github.io/artest/test.html',
-            src:   'assets/park.png', 
+            src:   'assets/park.png',
             location: {
                 lat: 39.169307,
                 lng: 8.525570,
@@ -75,19 +75,16 @@ function renderPlaces(places) {
         const icon = document.createElement('a-image');
         icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
         icon.setAttribute('name', place.name);
-        icon.setAttribute('href', place.link);
-        icon.setAttribute('src',  place.src);
-        icon.setAttribute('look-at', '[gps-camera]');
+        icon.setAttribute('src', 'place.src');
 
-        // for debug purposes,just show in a bigger scale
-        icon.setAttribute('scale', '20, 20, 20');
+        // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
+        icon.setAttribute('scale', '7, 7');
 
         icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
 
         const clickListener = function (ev) {
             ev.stopPropagation();
             ev.preventDefault();
-            alert("cliccato");
 
             const name = ev.target.getAttribute('name');
 
