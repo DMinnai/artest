@@ -77,6 +77,7 @@ function renderPlaces(places) {
         icon.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude}`);
         icon.setAttribute('name', place.name);
         icon.setAttribute('src', place.src);
+        icon.setAttribute('href', place.link);
         icon.setAttribute('width', '2');
         icon.setAttribute('height', '2');
         icon.setAttribute('look-at', '[gps-camera]');
@@ -105,6 +106,7 @@ function renderPlaces(places) {
                 
                 const poiLink = document.createElement('a');
                 poiLink.setAttribute('id', 'place-link');
+                poiLink.setAttribute('href', link);
                 
                 label.innerText = name;
                 poiLink.innerText = link;
