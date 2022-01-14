@@ -13,20 +13,6 @@
      padding: 0.5em;
      width: initial;
 }
- #alert-popup {
-     border-radius: 5px;
-     position: absolute;
-     bottom: 10%;
-     left: 5%;
-     display: block;
-     width: 80%;
-     margin: 1em;
-     padding: 0.25em;
-     color: #ff7500;
-     font-size: 0.75em;
-     text-align: center;
-     background-color: white;
-}
  #place-label {
      position: absolute;
      top: 5%;
@@ -37,12 +23,12 @@
 }
  #place-label > span {
      z-index: 99999;
-     padding: 0.25em;
-     color: #ff7500;
+     padding: 1.25em;
+     color: #ffffff;
      text-align: center;
-     background-color: white;
+     background-color: #00000047;
      font-size: 1.5em;
-     border-radius: 5px;
+     border-radius: 0px;
 }
  .arjs-loader {
      position: fixed;
