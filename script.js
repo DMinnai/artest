@@ -109,7 +109,7 @@ function renderPlaces(places) {
                 poiLink.setAttribute('href', link);
                 
                 label.innerText = name;
-                poiLink.innerText = link;
+                poiLink.innerText = "Approfondisci";
                 
                 container.appendChild(label);
                 container.appendChild(poiLink);
