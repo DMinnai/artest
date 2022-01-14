@@ -30,14 +30,6 @@ window.onload = () => {
 
 function staticLoadPlaces() {
     return [
-       //  {
-          //   name: 'Centro prelievi',
-            // link:  'www.palazzo.com',
-            // location: {
-               //  lat: 39.169244,
-               //  lng: 8.524915,
-            // }
-        // },
         {
             name: 'Palazzo Pazze',
             link:  'www.palazzo.com',
@@ -46,14 +38,6 @@ function staticLoadPlaces() {
                 lng: 8.526157,
             }
         },
-        // {
-         //    name: 'Palazzo Retro',
-       //      link:  'www.palazzo.com',
-        //     location: {
-       //          lat: 39.170012,
-         //        lng: 8.525485,
-       //      }
-       //  },
     ];
 }
 
