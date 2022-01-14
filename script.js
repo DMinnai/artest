@@ -103,7 +103,7 @@ function renderPlaces(places) {
 
                 setTimeout(() => {
                     container.parentElement.removeChild(container);
-                }, 1500);
+                }, 9500);
             }
         };
 
