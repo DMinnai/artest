@@ -54,7 +54,7 @@ function renderPlaces(places) {
         text.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         text.setAttribute('title', place.name);
         text.setAttribute('href',  place.link);
-        text.setAttribute('scale', '1 1 1');
+        text.setAttribute('scale', '5 5 5');
 
        
         
