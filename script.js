@@ -79,7 +79,7 @@ function renderPlaces(places) {
         let image = document.createElement('a-image');
         image.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
         image.setAttribute('src', 'assets/assets.png');
-        image.setAttribute('scale', '1 1 1');
+        image.setAttribute('scale', '30 30 30');
         image.setAttribute('look-at', '[gps-camera]');
 
         image.addEventListener('loaded', () => {
