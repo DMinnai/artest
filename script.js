@@ -108,7 +108,7 @@ function renderPlaces(places) {
                document.getElementById('modal-info').remove();
             }
             
-            document.body.innerHTML +=  = '<div id="modal-info" class="modal"><div class="modal-content"><span class="close">×</span><p id="modal-body"></p></div></div>';
+            document.body.innerHTML += '<div id="modal-info" class="modal"><div class="modal-content"><span class="close">×</span><p id="modal-body"></p></div></div>';
             
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
