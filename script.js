@@ -101,13 +101,13 @@ function renderPlaces(places) {
             ev.stopPropagation();
             ev.preventDefault();
             console.log("target", ev.target);
-            document.getElementById('place-label').remove();
-
+            if (document.contains(document.getElementById('place-label'))) {
+               document.getElementById('place-label').remove();
+            }
 
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
             const info = ev.target.getAttribute('info');
-
 
             const el = ev.detail.intersection && ev.detail.intersection.object.el;
 
