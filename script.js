@@ -104,6 +104,9 @@ function renderPlaces(places) {
             if (document.contains(document.getElementById('place-label'))) {
                document.getElementById('place-label').remove();
             }
+             if (document.contains(document.getElementById('modal-info'))) {
+               document.getElementById('modal-info').remove();
+            }
 
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
