@@ -12,16 +12,15 @@ window.onload = () => {
     if (method !== 'static') {
 
         // first get current user location
-        return navigator.geolocation.getCurrentPosition(function (position) {
+        return navigator.geolocation.getCurrentPosition(function(position) {
 
-            // than use it to load from remote APIs some places nearby
-            dynamicLoadPlaces(position.coords)
-                .then((places) => {
-                    renderPlaces(places);
-                })
-        },
-            (err) => console.error('Error in retrieving position', err),
-            {
+                // than use it to load from remote APIs some places nearby
+                dynamicLoadPlaces(position.coords)
+                    .then((places) => {
+                        renderPlaces(places);
+                    })
+            },
+            (err) => console.error('Error in retrieving position', err), {
                 enableHighAccuracy: true,
                 maximumAge: 0,
                 timeout: 27000,
@@ -31,12 +30,11 @@ window.onload = () => {
 };
 
 function staticLoadPlaces() {
-    return [
-          {
+    return [{
             name: 'Questo è il palazzo Pazze ',
-            link:  'https://dminnai.github.io/artest/test.html',
-            info:  'contenuto di test aggiuntivo',  
-            src:   'assets/asset.png',
+            link: 'https://dminnai.github.io/artest/test.html',
+            info: 'contenuto di test aggiuntivo',
+            src: 'assets/asset.png',
             location: {
                 lat: 39.169192,
                 lng: 8.526058,
@@ -44,9 +42,9 @@ function staticLoadPlaces() {
         },
         {
             name: 'Laboratorio analisi ',
-            link:  'https://dminnai.github.io/artest/test.html',
-            info:  'contenuto di test aggiuntivo 2',  
-            src:   'assets/lab.png',
+            link: 'https://dminnai.github.io/artest/test.html',
+            info: 'contenuto di test aggiuntivo 2',
+            src: 'assets/lab.png',
             location: {
                 lat: 39.169377,
                 lng: 8.524878,
@@ -54,9 +52,9 @@ function staticLoadPlaces() {
         },
         {
             name: 'Parcheggio Davide',
-            link:  'https://dminnai.github.io/artest/test.html',
-            info:  'contenuto di test aggiuntivo 3', 
-            src:   'assets/park.png',
+            link: 'https://dminnai.github.io/artest/test.html',
+            info: 'contenuto di test aggiuntivo 3',
+            src: 'assets/park.png',
             location: {
                 lat: 39.169307,
                 lng: 8.525570,
@@ -73,7 +71,7 @@ function renderPlaces(places) {
     places.forEach((place) => {
         const latitude = place.location.lat;
         const longitude = place.location.lng;
-        
+
 
         // add place icon
         const icon = document.createElement('a-image');
@@ -90,14 +88,20 @@ function renderPlaces(places) {
         icon.setAttribute('scale', '7, 7');
 
         // icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
-        icon.addEventListener('loaded', () => {  window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }})) });
+        icon.addEventListener('loaded', () => {
+            window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', {
+                detail: {
+                    component: this.el
+                }
+            }))
+        });
 
 
-        const clickListener = function (ev) {
+        const clickListener = function(ev) {
             ev.stopPropagation();
             ev.preventDefault();
             console.log("target", ev.target);
-            
+
 
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
@@ -107,30 +111,46 @@ function renderPlaces(places) {
             const el = ev.detail.intersection && ev.detail.intersection.object.el;
 
             if (el && el === ev.target) {
-                
+
                 //create button modal
                 const button = document.createElement('button');
                 button.setAttribute('id', 'modal-btn');
                 button.innerText = "modale";
-                
+
                 const label = document.createElement('span');
-                
+
                 const container = document.createElement('div');
                 container.setAttribute('id', 'place-label');
-                
+
                 const poiLink = document.createElement('a');
                 poiLink.setAttribute('id', 'place-link');
                 poiLink.setAttribute('href', link);
-                
+
                 label.innerText = name;
                 poiLink.innerText = "Approfondisci";
-                
+
                 container.appendChild(label);
                 container.appendChild(poiLink);
                 container.appendChild(button);
-                
+
                 document.body.appendChild(container);
                 
+                const modal = document.getElementById("modal-info");
+                //const btn = document.getElementById("modal-btn");
+
+                const span = document.getElementsByClassName("close")[0];
+                button.onclick = function() {
+                    modal.style.display = "block";
+                }
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+
                 const bodyInfo = document.getElementById('modal-info').textContent;
                 bodyInfo.appendChild(info);
 
