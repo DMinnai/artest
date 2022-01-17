@@ -104,12 +104,7 @@ function renderPlaces(places) {
             if (document.contains(document.getElementById('place-label'))) {
                document.getElementById('place-label').remove();
             }
-             if (document.contains(document.getElementById('modal-info'))) {
-               document.getElementById('modal-info').remove();
-            }
-            
-            document.body.appendChild += '<div id="modal-info" class="modal"><div class="modal-content"><span class="close">×</span><p id="modal-body"></p></div></div>';
-            
+                        
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
             const info = ev.target.getAttribute('info');
@@ -150,10 +145,12 @@ function renderPlaces(places) {
                 }
                 span.onclick = function() {
                     modal.style.display = "none";
+                    document.getElementById('modal-body').textContent += "";
                 }
                 window.onclick = function(event) {
                     if (event.target == modal) {
                         modal.style.display = "none";
+                        document.getElementById('modal-body').textContent += "";
                     }
                 }
 
