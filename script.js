@@ -125,9 +125,12 @@ function renderPlaces(places) {
                 const poiLink = document.createElement('a');
                 poiLink.setAttribute('id', 'place-link');
                 poiLink.setAttribute('href', link);
+                
+                 const bodyInfo = document.getElementById('modal-info').textContent;
 
                 label.innerText = name;
                 poiLink.innerText = "Approfondisci";
+                bodyInfo.innerText = info;
 
                 container.appendChild(label);
                 container.appendChild(poiLink);
@@ -150,9 +153,6 @@ function renderPlaces(places) {
                         modal.style.display = "none";
                     }
                 }
-
-                const bodyInfo = document.getElementById('modal-info').textContent;
-                bodyInfo.appendChild(info);
 
                 setTimeout(() => {
                     container.parentElement.removeChild(container);
