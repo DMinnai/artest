@@ -131,8 +131,8 @@ function renderPlaces(places) {
                 
                 document.body.appendChild(container);
                 
-                const info = document.getElementById('info').textContent;
-                info.appendChild(info);
+                const bodyInfo = document.getElementById('modal-info').textContent;
+                bodyInfo.appendChild(info);
 
                 setTimeout(() => {
                     container.parentElement.removeChild(container);
