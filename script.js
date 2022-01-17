@@ -106,7 +106,7 @@ function renderPlaces(places) {
             }
             if (document.getElementById('modal-body').innerHTML.trim() != '') {
                alert("pieno");
-               document.getElementById('modal-body').textContent += "";
+               document.getElementById('modal-body').innerHTML = "";
             }
                                   
             const name = ev.target.getAttribute('name');
@@ -149,12 +149,10 @@ function renderPlaces(places) {
                 }
                 span.onclick = function() {
                     modal.style.display = "none";
-                    document.getElementById('modal-body').textContent += "";
                 }
                 window.onclick = function(event) {
                     if (event.target == modal) {
                         modal.style.display = "none";
-                        document.getElementById('modal-body').textContent += "";
                     }
                 }
 
