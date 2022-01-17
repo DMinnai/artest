@@ -101,6 +101,7 @@ function renderPlaces(places) {
             ev.stopPropagation();
             ev.preventDefault();
             console.log("target", ev.target);
+            document.getElementById('place-label').remove();
 
 
             const name = ev.target.getAttribute('name');
@@ -125,7 +126,7 @@ function renderPlaces(places) {
                 const poiLink = document.createElement('a');
                 poiLink.setAttribute('id', 'place-link');
                 poiLink.setAttribute('href', link);
-                
+
                 document.getElementById('modal-body').textContent += info;
 
                 label.innerText = name;
@@ -136,7 +137,7 @@ function renderPlaces(places) {
                 container.appendChild(button);
 
                 document.body.appendChild(container);
-                
+
                 const modal = document.getElementById("modal-info");
                 const span = document.getElementsByClassName("close")[0];
                 button.onclick = function() {
