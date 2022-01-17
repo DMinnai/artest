@@ -104,7 +104,8 @@ function renderPlaces(places) {
             if (document.contains(document.getElementById('place-label'))) {
                document.getElementById('place-label').remove();
             }
-            if (document.getElementById('modal-body')) {
+            if (document.getElementById('modal-body').innerHTML.trim() != '') {
+               alert("pieno");
                document.getElementById('modal-body').textContent += "";
             }
                                   
