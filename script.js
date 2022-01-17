@@ -101,7 +101,7 @@ function renderPlaces(places) {
 
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
-            const link = ev.target.getAttribute('info');
+            const info = ev.target.getAttribute('info');
 
 
             const el = ev.detail.intersection && ev.detail.intersection.object.el;
