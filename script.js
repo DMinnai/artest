@@ -104,7 +104,10 @@ function renderPlaces(places) {
             if (document.contains(document.getElementById('place-label'))) {
                document.getElementById('place-label').remove();
             }
-                        
+            if (document.getElementById('modal-body').innerHTML != "") {
+               document.getElementById('modal-body').textContent += "";
+            }
+                                  
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
             const info = ev.target.getAttribute('info');
