@@ -104,7 +104,7 @@ function renderPlaces(places) {
             if (document.contains(document.getElementById('place-label'))) {
                document.getElementById('place-label').remove();
             }
-            if (document.getElementById('modal-body').innerHTML != "") {
+            if (document.getElementById('modal-body')) {
                document.getElementById('modal-body').textContent += "";
             }
                                   
