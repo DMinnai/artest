@@ -126,7 +126,7 @@ function renderPlaces(places) {
                 poiLink.setAttribute('id', 'place-link');
                 poiLink.setAttribute('href', link);
                 
-                document.getElementById("p").textContent += info;
+                document.getElementById('modal-body').textContent += info;
 
                 label.innerText = name;
                 poiLink.innerText = "Approfondisci";
@@ -138,8 +138,6 @@ function renderPlaces(places) {
                 document.body.appendChild(container);
                 
                 const modal = document.getElementById("modal-info");
-                //const btn = document.getElementById("modal-btn");
-
                 const span = document.getElementsByClassName("close")[0];
                 button.onclick = function() {
                     modal.style.display = "block";
