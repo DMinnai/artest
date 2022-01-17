@@ -126,11 +126,10 @@ function renderPlaces(places) {
                 poiLink.setAttribute('id', 'place-link');
                 poiLink.setAttribute('href', link);
                 
-                const bodyInfo = document.getElementById('modal-body').textContent;
+                document.getElementById("p").textContent += info;
 
                 label.innerText = name;
                 poiLink.innerText = "Approfondisci";
-                bodyInfo.innerText = info;
 
                 container.appendChild(label);
                 container.appendChild(poiLink);
