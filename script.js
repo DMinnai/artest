@@ -35,6 +35,7 @@ function staticLoadPlaces() {
           {
             name: 'Questo è il palazzo Pazze ',
             link:  'https://dminnai.github.io/artest/test.html',
+            info:  'contenuto di test aggiuntivo',  
             src:   'assets/asset.png',
             location: {
                 lat: 39.169192,
@@ -44,6 +45,7 @@ function staticLoadPlaces() {
         {
             name: 'Laboratorio analisi ',
             link:  'https://dminnai.github.io/artest/test.html',
+            info:  'contenuto di test aggiuntivo 2',  
             src:   'assets/lab.png',
             location: {
                 lat: 39.169377,
@@ -53,6 +55,7 @@ function staticLoadPlaces() {
         {
             name: 'Parcheggio Davide',
             link:  'https://dminnai.github.io/artest/test.html',
+            info:  'contenuto di test aggiuntivo 3', 
             src:   'assets/park.png',
             location: {
                 lat: 39.169307,
@@ -78,6 +81,7 @@ function renderPlaces(places) {
         icon.setAttribute('name', place.name);
         icon.setAttribute('src', place.src);
         icon.setAttribute('href', place.link);
+        icon.setAttribute('info', place.info);
         icon.setAttribute('width', '2');
         icon.setAttribute('height', '2');
         icon.setAttribute('look-at', '[gps-camera]');
@@ -97,10 +101,18 @@ function renderPlaces(places) {
 
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
+            const link = ev.target.getAttribute('info');
+
 
             const el = ev.detail.intersection && ev.detail.intersection.object.el;
 
             if (el && el === ev.target) {
+                
+                //create button modal
+                const button = document.createElement('button');
+                button.setAttribute('id', 'modal-info');
+                button.innerText = "modale";
+                
                 const label = document.createElement('span');
                 
                 const container = document.createElement('div');
@@ -115,8 +127,12 @@ function renderPlaces(places) {
                 
                 container.appendChild(label);
                 container.appendChild(poiLink);
+                container.appendChild(button);
                 
                 document.body.appendChild(container);
+                
+                const info = document.getElementById('info').textContent;
+                info.appendChild(info);
 
                 setTimeout(() => {
                     container.parentElement.removeChild(container);
