@@ -110,7 +110,7 @@ function renderPlaces(places) {
                 
                 //create button modal
                 const button = document.createElement('button');
-                button.setAttribute('id', 'modal-info');
+                button.setAttribute('id', 'modal-btn');
                 button.innerText = "modale";
                 
                 const label = document.createElement('span');
