@@ -107,7 +107,10 @@ function renderPlaces(places) {
              if (document.contains(document.getElementById('modal-info'))) {
                document.getElementById('modal-info').remove();
             }
-
+            
+            var modalWrapper  = '<div id="modal-info" class="modal"><div class="modal-content"><span class="close">×</span><p id="modal-body"></p></div></div>';
+            document.body.appendChild(modalWrapper);
+            
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
             const info = ev.target.getAttribute('info');
