@@ -158,7 +158,7 @@ function renderPlaces(places) {
 
                 setTimeout(() => {
                     container.parentElement.removeChild(container);
-                }, 129500);
+                }, 9999500);
             }
         };
 
