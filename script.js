@@ -141,18 +141,38 @@ function renderPlaces(places) {
                 container.appendChild(button);
 
                 document.body.appendChild(container);
-
+                
+                // create variables for modal  
                 const modal = document.getElementById("modal-info");
                 const span = document.getElementsByClassName("close")[0];
+                
+                const modalContainer = document.getElementById("modal-container");
+                
+                //set onclick
                 button.onclick = function() {
-                    modal.style.display = "block";
+                    //old modal 
+                    //modal.style.display = "block";
+                    
+                    modalContainer.removeAttribute("class")
+                    modalContainer.classList.add("one");
+                    document.body.classList.add("modal-active");
+                    
                 }
                 span.onclick = function() {
-                    modal.style.display = "none";
+                     //old modal
+                    //modal.style.display = "none";
+                    
+                    modalContainer.classList.add("out");
+                    document.body.classList.remove("modal-active");
+                    
                 }
                 window.onclick = function(event) {
                     if (event.target == modal) {
-                        modal.style.display = "none";
+                        //old modal
+                        //modal.style.display = "none";
+                        
+                        modalContainer.classList.add("out");
+                        document.body.classList.remove("modal-active");
                     }
                 }
 
