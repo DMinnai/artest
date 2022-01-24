@@ -33,7 +33,7 @@ function staticLoadPlaces() {
     return [{
             name: 'Questo è il palazzo Pazze ',
             link: 'https://dminnai.github.io/artest/test.html',
-            info: 'contenuto di test aggiuntivo',
+            info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
             src: 'assets/asset.png',
             location: {
                 lat: 39.169192,
@@ -43,7 +43,7 @@ function staticLoadPlaces() {
         {
             name: 'Laboratorio analisi ',
             link: 'https://dminnai.github.io/artest/test.html',
-            info: 'contenuto di test aggiuntivo 2',
+            info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
             src: 'assets/lab.png',
             location: {
                 lat: 39.169377,
@@ -53,7 +53,7 @@ function staticLoadPlaces() {
         {
             name: 'Parcheggio Davide',
             link: 'https://dminnai.github.io/artest/test.html',
-            info: 'contenuto di test aggiuntivo 3',
+            info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
             src: 'assets/park.png',
             location: {
                 lat: 39.169307,
@@ -130,8 +130,11 @@ function renderPlaces(places) {
                 const poiLink = document.createElement('a');
                 poiLink.setAttribute('id', 'place-link');
                 poiLink.setAttribute('href', link);
-
+                
+                // place contents on modal 
+                document.getElementById('modal-title').textContent += name;
                 document.getElementById('modal-body').textContent += info;
+                document.getElementById('modal-link').textContent += link;
 
                 label.innerText = name;
                 poiLink.innerText = "Approfondisci";
@@ -146,6 +149,7 @@ function renderPlaces(places) {
                 const modal = document.getElementById("modal-info");
                 const span = document.getElementsByClassName("close")[0];
                 
+                const modalContainer = document.getElementById("modal-container");
                 const modalContainer = document.getElementById("modal-container");
                 
                 //set onclick
