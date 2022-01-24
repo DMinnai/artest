@@ -135,13 +135,13 @@ function renderPlaces(places) {
                 // place contents on modal 
                 document.getElementById('modal-title').textContent += name;
                 document.getElementById('modal-body').textContent += info;
-                document.getElementById('modal-link').textContent += link;
+                document.getElementById('modal-link').appendChild(poiLink);
 
                 label.innerText = name;
                 poiLink.innerText = "Approfondisci";
 
                 container.appendChild(label);
-                container.appendChild(poiLink);
+                // container.appendChild(poiLink);
                 container.appendChild(button);
 
                 document.body.appendChild(container);
