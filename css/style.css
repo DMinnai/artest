@@ -71,8 +71,8 @@
  .modal-content {
      background-color: #fefefe;
      margin: auto;
-     width: 88%;
-     height: 78vh;
+     width: 92%;
+     height: 86vh;
      background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 138.86%);
      border-radius: 22px;
 }
@@ -95,118 +95,120 @@
      cursor: pointer;
 }
  #modal-btn {
-   margin:1rem 0;
-   width: 89%;
-   margin-left: auto;
-   margin-right: auto;
-   left: 0;
-   right: 0;
-   background: #0B60FF;
-   color:#fff;
-   font-size:1rem;
-   padding:.5rem;
-   border:none;
-   text-transform: capitalize;
+     margin:1rem 0;
+     width: 89%;
+     margin-left: auto;
+     margin-right: auto;
+     left: 0;
+     right: 0;
+     background: #0B60FF;
+     color:#fff;
+     font-size:1rem;
+     padding:.5rem;
+     border:none;
+     text-transform: capitalize;
 }
-
-html.modal-active,
-body.modal-active {
-  overflow: hidden;
+ html.modal-active, body.modal-active {
+     overflow: hidden;
 }
-
-#modal-container {
-  position: fixed;
-  display: table;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  transform: scale(0);
-  z-index: 1;
+ #modal-container {
+     position: fixed;
+     display: table;
+     height: 100%;
+     width: 100%;
+     top: 0;
+     left: 0;
+     transform: scale(0);
+     z-index: 1;
 }
-#modal-container.one {
-  transform: scaleY(0.01) scaleX(0);
-  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+ #modal-container.one {
+     transform: scaleY(0.01) scaleX(0);
+     animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.one .modal-background .modal {
-  transform: scale(0);
-  animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+ #modal-container.one .modal-background .modal {
+     transform: scale(0);
+     animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.one.out {
-  transform: scale(1);
-  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+ #modal-container.one.out {
+     transform: scale(1);
+     animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-#modal-container.one.out .modal-background .modal {
-  animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+ #modal-container.one.out .modal-background .modal {
+     animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-
-#modal-container .modal-background {
-  display: table-cell;
-  background: rgb(0 0 0 / 23%);
-  text-align: center;
-  vertical-align: middle;
+ #modal-container .modal-background {
+     display: table-cell;
+     background: rgb(0 0 0 / 23%);
+     text-align: center;
+     vertical-align: middle;
 }
-#modal-container .modal-background .modal {
-  /* background: white; */
-  /* padding: 50px; */
-  /* display: inline-block; */
-  /* border-radius: 3px; */
-  /* font-weight: 300; */
-  /* position: relative; */
+ #modal-container .modal-background .modal {
+    /* background: white;
+     */
+    /* padding: 50px;
+     */
+    /* display: inline-block;
+     */
+    /* border-radius: 3px;
+     */
+    /* font-weight: 300;
+     */
+    /* position: relative;
+     */
 }
-#modal-container .modal-background .modal h2 {
-  font-size: 25px;
-  line-height: 25px;
-  margin-bottom: 15px;
+ #modal-container .modal-background .modal h2 {
+     font-size: 25px;
+     line-height: 25px;
+     margin-bottom: 15px;
 }
-#modal-container .modal-background .modal p {
-  font-size: 18px;
-  line-height: 22px;
+ #modal-container .modal-background .modal p {
+     font-size: 18px;
+     line-height: 22px;
 }
-#modal-container .modal-background .modal .modal-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  border-radius: 3px;
+ #modal-container .modal-background .modal .modal-svg {
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     border-radius: 3px;
 }
-
-@keyframes unfoldIn {
-  0% {
-    transform: scaleY(0.005) scaleX(0);
-  }
-  50% {
-    transform: scaleY(0.005) scaleX(1);
-  }
-  100% {
-    transform: scaleY(1) scaleX(1);
-  }
+ @keyframes unfoldIn {
+     0% {
+         transform: scaleY(0.005) scaleX(0);
+    }
+     50% {
+         transform: scaleY(0.005) scaleX(1);
+    }
+     100% {
+         transform: scaleY(1) scaleX(1);
+    }
 }
-@keyframes unfoldOut {
-  0% {
-    transform: scaleY(1) scaleX(1);
-  }
-  50% {
-    transform: scaleY(0.005) scaleX(1);
-  }
-  100% {
-    transform: scaleY(0.005) scaleX(0);
-  }
+ @keyframes unfoldOut {
+     0% {
+         transform: scaleY(1) scaleX(1);
+    }
+     50% {
+         transform: scaleY(0.005) scaleX(1);
+    }
+     100% {
+         transform: scaleY(0.005) scaleX(0);
+    }
 }
-@keyframes zoomIn {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
+ @keyframes zoomIn {
+     0% {
+         transform: scale(0);
+    }
+     100% {
+         transform: scale(1);
+    }
 }
-@keyframes zoomOut {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
+ @keyframes zoomOut {
+     0% {
+         transform: scale(1);
+    }
+     100% {
+         transform: scale(0);
+    }
 }
+ 
