@@ -211,11 +211,23 @@
          transform: scale(0);
     }
 }
-
-.modal-title {
-
+ #modal-body {
+     color: #fff;
+     padding: 10px 0 30px;
+     width: 88%;
+     margin: 0 auto;
+     font-size: 16px;
+     line-height: 28px;
+     letter-spacing: -0.185185px;
 }
-
-.modal-link {
-
+ #modal-title {
+     font-size:24px;
+     color: #fff;
+     padding: 100px 0 30px;
+     font-weight:600;
+     line-height: 28px;
 }
+ #modal-link {
+     color: #fff;
+}
+ 
