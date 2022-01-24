@@ -84,7 +84,7 @@ function renderPlaces(places) {
         icon.setAttribute('height', '2');
         icon.setAttribute('look-at', '[gps-camera]');
 
-        // for debug purposes, just show in a bigger scale, otherwise I have to personally go on places...
+        // for debug purposes dimension are bigger
         icon.setAttribute('scale', '7, 7');
 
         // icon.addEventListener('loaded', () => window.dispatchEvent(new CustomEvent('gps-entity-place-loaded')));
@@ -96,7 +96,6 @@ function renderPlaces(places) {
             }))
         });
 
-
         const clickListener = function(ev) {
             ev.stopPropagation();
             ev.preventDefault();
@@ -106,7 +105,9 @@ function renderPlaces(places) {
             }
             if (document.getElementById('modal-body').innerHTML.trim() != '') {
                alert("pieno");
+               document.getElementById('modal-title').innerHTML = "";
                document.getElementById('modal-body').innerHTML = "";
+               document.getElementById('modal-link').innerHTML = "";
             }
                                   
             const name = ev.target.getAttribute('name');
@@ -120,7 +121,7 @@ function renderPlaces(places) {
                 //create button modal
                 const button = document.createElement('button');
                 button.setAttribute('id', 'modal-btn');
-                button.innerText = "modale";
+                button.innerText = "approfondisci";
 
                 const label = document.createElement('span');
 
@@ -150,31 +151,21 @@ function renderPlaces(places) {
                 const span = document.getElementsByClassName("close")[0];
                 
                 const modalContainer = document.getElementById("modal-container");
-                const modalContainer = document.getElementById("modal-container");
                 
                 //set onclick
                 button.onclick = function() {
-                    //old modal 
-                    //modal.style.display = "block";
-                    
                     modalContainer.removeAttribute("class")
                     modalContainer.classList.add("one");
                     document.body.classList.add("modal-active");
                     
                 }
                 span.onclick = function() {
-                     //old modal
-                    //modal.style.display = "none";
-                    
                     modalContainer.classList.add("out");
                     document.body.classList.remove("modal-active");
                     
                 }
                 window.onclick = function(event) {
                     if (event.target == modal) {
-                        //old modal
-                        //modal.style.display = "none";
-                        
                         modalContainer.classList.add("out");
                         document.body.classList.remove("modal-active");
                     }
