@@ -99,16 +99,16 @@
      cursor: pointer;
 }
  #modal-btn {
-     margin:1rem 0;
-     width:auto;
-     margin-left: auto;
-     margin-right: auto;
-     left: 0;
-     right: 0;
-     background: #0B60FF;
-     color:#fff;
-     font-size:1rem;
-     padding:.5rem;
-     border:none;
+   margin:1rem 0;
+   width: 89%;
+   margin-left: auto;
+   margin-right: auto;
+   left: 0;
+   right: 0;
+   background: #0B60FF;
+   color:#fff;
+   font-size:1rem;
+   padding:.5rem;
+   border:none;
+   text-transform: capitalize;
 }
- 
