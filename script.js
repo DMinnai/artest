@@ -44,7 +44,7 @@ function staticLoadPlaces() {
             name: 'Laboratorio analisi ',
             link: 'https://dminnai.github.io/artest/test.html',
             info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-            src: 'assets/lab.png',
+            src: 'assets/Vector.png',
             location: {
                 lat: 39.169377,
                 lng: 8.524878,
@@ -54,7 +54,7 @@ function staticLoadPlaces() {
             name: 'Parcheggio Davide',
             link: 'https://dminnai.github.io/artest/test.html',
             info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum',
-            src: 'assets/park.png',
+            src: 'assets/Vector.png',
             location: {
                 lat: 39.169307,
                 lng: 8.525570,
