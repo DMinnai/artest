@@ -1,6 +1,27 @@
 window.onload = () => {
+    
+    const options = {
+       method: 'get',
+       headers: {
+       "Content-Type": "application/json",
+       "i-edx-token": "554c8ffbe6a574c33680fb594ab8c0952b54d9301fc941a34ba27434cfd8cbca",
+      }
+    };
+    
+    try {
+  const response = await fetch('https://i-edx.k8s-entando.org/jangalian/accesscode/0-0-1-snapshot/api/pois', options);
+  if (!response.ok) {
+    const message = 'Error with Status Code: ' + response.status;
+    throw new Error(message);
+  }
+    const data = await response.json();
+    console.log("POI", data);
+  } catch (error) {
+  console.log('Error: ' + err);
+ }
+    
+    
     let method = 'dynamic';
-
     // if you want to statically add places, de-comment following line
     method = 'static';
 
@@ -29,6 +50,10 @@ window.onload = () => {
         );
     }
 };
+
+
+
+
 
 function staticLoadPlaces() {
     return [{
