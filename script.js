@@ -1,6 +1,6 @@
 window.onload = () => {
 
-    function getPois() {
+    async function getPois() {
 
         const options = {
             method: 'get',
