@@ -1,26 +1,29 @@
 window.onload = () => {
-    
-    const options = {
-       method: 'get',
-       headers: {
-       "Content-Type": "application/json",
-       "i-edx-token": "554c8ffbe6a574c33680fb594ab8c0952b54d9301fc941a34ba27434cfd8cbca",
-      }
-    };
-    
-    try {
-  const response = await fetch('https://i-edx.k8s-entando.org/jangalian/accesscode/0-0-1-snapshot/api/pois', options);
-  if (!response.ok) {
-    const message = 'Error with Status Code: ' + response.status;
-    throw new Error(message);
-  }
-    const data = await response.json();
-    console.log("POI", data);
-  } catch (error) {
-  console.log('Error: ' + err);
- }
-    
-    
+
+    function getPois() {
+
+        const options = {
+            method: 'get',
+            headers: {
+                "Content-Type": "application/json",
+                "i-edx-token": "554c8ffbe6a574c33680fb594ab8c0952b54d9301fc941a34ba27434cfd8cbca",
+            }
+        };
+
+        try {
+            const response = await fetch('https://i-edx.k8s-entando.org/jangalian/accesscode/0-0-1-snapshot/api/pois', options);
+            if (!response.ok) {
+                const message = 'Error with Status Code: ' + response.status;
+                throw new Error(message);
+            }
+            const data = await response.json();
+            console.log("POI", data);
+        } catch (error) {
+            console.log('Error: ' + err);
+        }
+    }
+
+
     let method = 'dynamic';
     // if you want to statically add places, de-comment following line
     method = 'static';
@@ -28,7 +31,9 @@ window.onload = () => {
     if (method === 'static') {
         let places = staticLoadPlaces();
         renderPlaces(places);
+
         console.log(places);
+        getPois();
     }
 
     if (method !== 'static') {
@@ -50,7 +55,6 @@ window.onload = () => {
         );
     }
 };
-
 
 
 
@@ -127,15 +131,15 @@ function renderPlaces(places) {
             ev.preventDefault();
             console.log("target", ev.target);
             if (document.contains(document.getElementById('place-label'))) {
-               document.getElementById('place-label').remove();
+                document.getElementById('place-label').remove();
             }
             if (document.getElementById('modal-body').innerHTML.trim() != '') {
-               alert("pieno");
-               document.getElementById('modal-title').innerHTML = "";
-               document.getElementById('modal-body').innerHTML = "";
-               document.getElementById('modal-link').innerHTML = "";
+                alert("pieno");
+                document.getElementById('modal-title').innerHTML = "";
+                document.getElementById('modal-body').innerHTML = "";
+                document.getElementById('modal-link').innerHTML = "";
             }
-                                  
+
             const name = ev.target.getAttribute('name');
             const link = ev.target.getAttribute('href');
             const info = ev.target.getAttribute('info');
@@ -157,7 +161,7 @@ function renderPlaces(places) {
                 const poiLink = document.createElement('a');
                 poiLink.setAttribute('id', 'place-link');
                 poiLink.setAttribute('href', link);
-                
+
                 // place contents on modal 
                 document.getElementById('modal-title').textContent += name;
                 document.getElementById('modal-body').textContent += info;
@@ -171,24 +175,24 @@ function renderPlaces(places) {
                 container.appendChild(button);
 
                 document.body.appendChild(container);
-                
+
                 // create variables for modal  
                 const modal = document.getElementById("modal-info");
                 const span = document.getElementsByClassName("close")[0];
-                
+
                 const modalContainer = document.getElementById("modal-container");
-                
+
                 //set onclick
                 button.onclick = function() {
                     modalContainer.removeAttribute("class")
                     modalContainer.classList.add("one");
                     document.body.classList.add("modal-active");
-                    
+
                 }
                 span.onclick = function() {
                     modalContainer.classList.add("out");
                     document.body.classList.remove("modal-active");
-                    
+
                 }
                 window.onclick = function(event) {
                     if (event.target == modal) {
