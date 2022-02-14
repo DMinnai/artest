@@ -1,6 +1,6 @@
 window.onload = () => {
 
-    async function getPois() {
+     function getPois() {
 
         const options = {
             method: 'get',
@@ -11,12 +11,12 @@ window.onload = () => {
         };
 
         try {
-            const response = await fetch('https://i-edx.k8s-entando.org/jangalian/accesscode/0-0-1-snapshot/api/pois', options);
+            const response =  fetch('https://i-edx.k8s-entando.org/jangalian/accesscode/0-0-1-snapshot/api/pois', options);
             if (!response.ok) {
                 const message = 'Error with Status Code: ' + response.status;
                 throw new Error(message);
             }
-            const data = await response.json();
+            const data =  response.json();
             console.log("POI", data);
         } catch (error) {
             console.log('Error: ' + err);
