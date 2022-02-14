@@ -7,6 +7,7 @@ window.onload = () => {
     if (method === 'static') {
         let places = staticLoadPlaces();
         renderPlaces(places);
+        console.log(places);
     }
 
     if (method !== 'static') {
